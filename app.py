@@ -19,17 +19,10 @@ from googleapiclient.errors import HttpError
 model = pickle.load(open('model.pkl','rb'))
 
 st.set_page_config(
-<<<<<<< HEAD
-     page_title="Mail Spam Classifier",
-     page_icon= "email.png"
- )
-
-=======
      page_title="Mail Spam Classifie",
      page_icon="email.png"
  )
  
->>>>>>> 9783fded040c9b92a847a475d284dcd0062c6ed3
 def transform_text(text):
     text = text.lower()
     text = nltk.word_tokenize(text)
