@@ -19,15 +19,8 @@ from googleapiclient.errors import HttpError
 model = pickle.load(open('model.pkl','rb'))
 
 st.set_page_config(
-     page_title="Ex-stream-ly Cool App",
-     page_icon="😂",
-    #  layout="wide",
-     initial_sidebar_state="expanded",
-     menu_items={
-         'Get Help': 'https://www.google.co.in',
-         'Report a bug': "https://www.extremelycoolapp.com/bug",
-         'About': "# This is a header. This is an *extremely* cool app!"
-     }
+     page_title="Mail Spam Classifie",
+     page_icon="email.png"
  )
  
 def transform_text(text):
