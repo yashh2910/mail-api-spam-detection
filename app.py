@@ -19,10 +19,17 @@ from googleapiclient.errors import HttpError
 model = pickle.load(open('model.pkl','rb'))
 
 st.set_page_config(
+<<<<<<< HEAD
+     page_title="Mail Spam Classifier",
+     page_icon= "email.png"
+ )
+
+=======
      page_title="Mail Spam Classifie",
      page_icon="email.png"
  )
  
+>>>>>>> 9783fded040c9b92a847a475d284dcd0062c6ed3
 def transform_text(text):
     text = text.lower()
     text = nltk.word_tokenize(text)
@@ -46,7 +53,6 @@ def transform_text(text):
         y.append(ps.stem(i))
     return " ".join(y)
 
-
 st.title("Email / SMS spam classifier")
 input_sms = st.text_area("Enter Message")
 if st.button("Predict"):
@@ -57,6 +63,7 @@ if st.button("Predict"):
         st.header("Spam Messsage")
     else:
         st.header("Not Spam / Ham Message")
+
 if st.button("Check Last mail"):
     SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
 
@@ -128,6 +135,7 @@ if st.button("Check All Spam mail"):
             messages = results2.get('snippet', [])
             message.append(messages)
         msg = []
+        st.header("List of Spam Mail")
         for i in range(len(ids)):
             input_sms = message[i]
             transformed_text = transform_text(input_sms)
@@ -135,7 +143,6 @@ if st.button("Check All Spam mail"):
             
             if result == 1:
                 st.write(input_sms)
-                st.header("Spam Messsage")
                 st.header("")
     except HttpError as error:
             # TODO(developer) - Handle errors from gmail API.
