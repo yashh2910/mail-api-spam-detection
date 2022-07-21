@@ -119,7 +119,7 @@ if st.button("Check All Spam mail"):
         service = build('gmail', 'v1', credentials=creds)
         results = service.users().labels().list(userId='me').execute()
         labels = results.get('labels', [])
-        results1 = service.users().messages().list(userId='me',maxResults=5).execute()
+        results1 = service.users().messages().list(userId='me',maxResults=20).execute()
         ids = results1.get('messages', [])
         message = []
         for id in ids:
